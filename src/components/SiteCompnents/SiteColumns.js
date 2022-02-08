@@ -1,7 +1,8 @@
-import styled from 'styled-components';
+import styled, {ThemeProvider} from 'styled-components';
 import Button from '../Button';
 import CardsComp from './CardsComp';
 import {devices} from '../MediaQueries';
+import {useState } from 'react';
 
 const SiteCard = styled.div`
     width: 100%;
@@ -11,10 +12,6 @@ const SiteCard = styled.div`
     justify-content: center;
     align-items: center;
 `
-// const Card = styled.div`
-//     width: 100%;
-//     height: 200px;;
-// `
 
 const CardWrap = styled.div`
     position: relative;
@@ -36,11 +33,6 @@ const Figure = styled.figure`
     transition: all .3s ease-in-out;
 `
 
-const BoxPhoto = styled.div`
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-`
 const BoxImg = styled.div`
     position: relative;
     display: block;
@@ -51,6 +43,7 @@ const BoxImg = styled.div`
     transform: translateZ(0);
     object-fit: cover;
     border: 1px solid #f4f4f4;
+    cursor: pointer;
 
     :hover{
         background: var(--grey-color);
@@ -83,9 +76,10 @@ const Hover = styled.div`
     margin-top: -32px;
     width: 100%;
     top: 50%;
+    left: 20%
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
+    transform: translateY(0%);
 `
 
 const BoxInfo = styled.div`
@@ -93,20 +87,30 @@ const BoxInfo = styled.div`
     padding: .75rem 0 0;
 `
 
-
-
+const theme = {
+    main: "90%"
+}; 
 
 export default function SiteCards () {
+    const [visible, setVisible] = useState(12);
+    const showMoreItems = () => {
+        setVisible((prevValue) => prevValue + 12)
+    };
+
+    const [display, setDisplay] = useState('')
+    const showButtons = () => {
+        setDisplay(display)
+    }
     return(
         <>
             <SiteCard>
-                {CardsComp.map((cards, i) => (
+                {CardsComp.slice(0, visible).map((cards) => (
                     <CardWrap key={cards.id}>
                         <Figure>
-                            <BoxImg>
-                                <img src= {cards.image} />
+                            <BoxImg onMouseOver={showButtons}>
+                                <img src= {cards.image}/>
                             </BoxImg>
-                            <Hover>
+                            <Hover  {...display}>
                                 <Button>Details</Button>
                                 <Button href= {cards.url}>Visit</Button>
                             </Hover>
@@ -118,7 +122,9 @@ export default function SiteCards () {
                     </CardWrap>
                 ))}
             </SiteCard>
+            <ThemeProvider theme={theme}>
+                <Button onClick={showMoreItems}>Load more</Button>
+            </ThemeProvider>
         </>
     )
 }
-

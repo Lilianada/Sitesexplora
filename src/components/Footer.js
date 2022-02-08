@@ -1,11 +1,7 @@
-import Button from "./Button";
-import styled, { ThemeProvider } from "styled-components";
-import {devices} from './MediaQueries'
-import CardsComp from "./SiteCompnents/CardsComp";
 
-const theme = {
-    main: "90%"
-}; 
+import styled from "styled-components";
+import {devices} from './MediaQueries'
+
 
 const Footer = styled.footer`
     display: flex;
@@ -51,42 +47,39 @@ const A = styled.a`
 
 
 export default function FooterSection () {
-    state = {
-        items: [],
-        page: 0,
-        visible: 12,
-        isLoading: false,
-        errorMsg: ''
-    };
-    loadMore() {
-        this.setState((prev) => {
-          return {visible: prev.visible + 4};
-        });
-    };
-    
-    componentDidMount() {
-        fetch("CardsComp").then(
-          res => res.json()
-        ).then(res => {
-          this.setState({
-            items: res
-          });
-        }).catch(error => {
-          console.error(error);
-          this.setState({
-            error: true
-          });
-        });
-      }
+    // state = {
+    //     items: [],
+    //     page: 0,
+    //     visible: 12,
+    //     isLoading: false,
+    //     errorMsg: ''
+    // };
+    // loadMore() {
+    //     this.setState((prev) => {
+    //       return {visible: prev.visible + 4};
+    //     });
+    // };
 
+    // componentDidMount() {
+    //     fetch("CardsComp").then(
+    //       res => res.json()
+    //     ).then(res => {
+    //       this.setState({
+    //         items: res
+    //       });
+    //     }).catch(error => {
+    //       console.error(error);
+    //       this.setState({
+    //         error: true
+    //       });
+    //     });
+    //   }
+    
+    
 
     return(
         <Footer>
-            <ThemeProvider theme={theme}>
-                <Button
-                    onClick={this.loadMore}
-                >Load more</Button>
-            </ThemeProvider>
+            
 
             <FooterLinks>
                 <Links><A>Chrome Extension</A></Links>

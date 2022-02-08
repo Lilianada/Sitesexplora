@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { IoEllipsisHorizontalSharp } from "react-icons/io5";
 import {devices} from './MediaQueries';
 import Button from "./Button";
+import FilterColor from './FilterColor'
 
 const Tabs = styled.button`
     cursor: pointer;
@@ -21,13 +22,11 @@ const Tabs = styled.button`
     `}
 `;
 
-const TabContent =styled.div`
-    display: flex;
-    width: 50%;
-    justify-content: center;
-    align-items: center;
-    margin: 1rem auto;
-`
+
+const TabLet = styled.div`
+    
+
+`;
 
 const TabList = styled.div`
     display: flex;
@@ -41,19 +40,13 @@ const TabList = styled.div`
     }
 `;
 
-const TabLet = styled.div`
-    display: flex;
-    flex-direction: column;
-    padding: 2rem ;
-
-`;
 
 const Filter = styled.div`
     display: flex;
     flex-direction: column;
     margin: 1rem;
-
-`;
+    
+    `;
 
 const Ul = styled.ul`
     display: table;
@@ -64,27 +57,37 @@ const Li = styled.li`
     display: table;
     margin-top: 1rem;
 `;
-const SearchInput = styled.div`
-    display: flex;
+
+const SearchInput = styled.form`
+    display: none;
+    position: absolute;
+    width: 260px;
+    background-color: var(--white-color);
+    height: 41px;
+    left: 0;
+    right: 0;
+    margin: -61px auto 0 auto;
+    border-bottom: 1px solid #ddd;
+    padding: 8px 16px 0 16px;
 `
 const Search = styled.input`
-    margin: 1.25rem 1.2rem;
+    display: none;
     outline: none;
-    padding: .75rem;
-    border: 1px solid #dfdede;
-    border-radius: 1.2rem;
-    width: 85%;
-    box-shadow: 0 0 15px 4px rgba(0,0,0,0.06);
-    position: relative;
-    font-size: var(--font-fourteen);
-    color: var(--text-pri-color);
+    border: none;
+    height: 30px;
+    font-size: 13px;
+    background: transparent;
+    text-align: left;
+    width: 100%;
+    //text-indent: 10px;
+    color: var(--black-color);
 
     &::placeholder{
-        color: var(--text-sec-color);
+        color: var(--grey-color);
     }
-`;
-
-const Submit = styled.div`
+    `;
+    
+const ModalWrapper =styled.div`
     display: none;
     position: fixed;
     top: 0;
@@ -93,24 +96,56 @@ const Submit = styled.div`
     height: 100%;
     background-color: rgba(0,0,0,0.7);
     z-index: 2;
-    display: block;
     overflow-y: scroll;
     padding: 0 15px;
 `
 
 const SubmitModal = styled.div`
+    display: none;
+    background-color: var(--white-color);
     margin: 45px auto 0 auto;
-    width: 400px;
+    width: 100%;
     padding: 30px;
-    background-color: #fff;
-    display: table;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     position: relative;
     border-radius: 3px;
+    
+    @media ${devices.tabletL} {
+        width: 400px;
+    } 
+    `
+    const ModalHead = styled.h2`
+    text-align: center;
+    font-weight: 600;
 `
 
+const ModalText = styled.p`
+    font-size: 16px;
+    text-align: left;
+    padding-top: 10px;
+    max-width: 450px;
+    margin: 0 auto;
+`
 
+const ModalInput = styled.input`
+    font-size: 13px;
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+    outline: none;
+    border: 1px solid #ddd;
+    padding: 10px 45px 10px 15px;
+    border-radius: 3px;
+`
+const Label = styled.label`
+    display: inline-flex;
+`
+    
 
-let ellipsis = <IoEllipsisHorizontalSharp style={{height: "1.5rem", width: "1.5rem"}}/>
+    
+    let ellipsis = <IoEllipsisHorizontalSharp style={{height: "1.5rem", width: "1.5rem"}}/>
 
 const content =
 [
@@ -138,20 +173,21 @@ const content =
     {
         tabItems: 'Submit',
         render: 
-            <SubmitModal>
-                <h3>Be seen amongst the best</h3>
-                <p>If you'd like to have your site (or any site) considered for 
-                    placement in our gallery, please complete the form below.
-                </p>
-                <input type="search" name="search" id="search" placeholder="Site url" />
-                <input type="search" name="search" id="search" placeholder="Your email address" />
-                <label>
-                    <input type="checkbox" name="checkbox" id="checkbox" />
-                    <h4>Subscribe to our newsletter</h4>
-                </label>
-                <Button>Submit</Button>
-            </SubmitModal>
-
+            <ModalWrapper>
+                <SubmitModal>
+                    <ModalHead>Be seen amongst the best</ModalHead>
+                    <ModalText>If you'd like to have your site (or any site) considered for 
+                        ModalTextlacement in our gallery, please complete the form below.
+                    </ModalText>
+                    <ModalInput type="search" name="search" id="search" placeholder="Site url" />
+                    <ModalInput type="search" name="search" id="search" placeholder="Your email address" />
+                    <Label>
+                        <input type="checkbox" name="checkbox" id="checkbox" />
+                        <h4>Subscribe to our newsletter</h4>
+                    </Label>
+                    <Button>Submit</Button>
+                </SubmitModal>
+            </ModalWrapper>
     },
     {
         tabItems: 'Ellipsis',
@@ -164,32 +200,58 @@ const content =
 const types = ['Search','Filter', 'Submit', ellipsis];
 
 export default function TabMenu () {
-    const [active, setActive] = useState(types[0]);
-    
+    const [active, setActive] = useState('');
+    const [display, setDisplay] = useState('')
+
     return(
         <div>
             <TabList>
                 {types.map(type => (
                     <Tabs
                         key= {type}
-                        active= {active === type}
+                        active= {active === type === display}
                         onClick={() => setActive(type)}
                     >
                         {type}
                     </Tabs>
                 ))}
             </TabList>
-            <TabContent>
-                {types.map((type, index) => (
-                    <TabLet
-                        p={6}
-                        key= {index}
-                        active= {active === type}
+
+            <ModalWrapper>
+                <SubmitModal>
+                    <ModalHead>Be seen amongst the best</ModalHead>
+                    <ModalText>If you'd like to have your site (or any site) considered for 
+                        ModalTextlacement in our gallery, please complete the form below.
+                    </ModalText>
+                    <ModalInput type="search" name="search" id="search" placeholder="Site url" />
+                    <ModalInput type="search" name="search" id="search" placeholder="Your email address" />
+                    <Label>
+                        <input type="checkbox" name="checkbox" id="checkbox" />
+                        <h4>Subscribe to our newsletter</h4>
+                    </Label>
+                    <Button>Submit</Button>
+                </SubmitModal>
+            </ModalWrapper>
+            
+            <SearchInput>
+                <Search type="search" name="search" id="search" placeholder="Search for a site..." />
+            </SearchInput>
+
+            <Filter>
+                {FilterColor.map(tags => (
+                    <Ul
+                        key={id}
+                        active= {display === tags}
                     >
-                        {type.render}
-                    </TabLet>
+                        <Li>
+                            {tags.tabName}
+                        </Li>
+                    </Ul>
                 ))}
-            </TabContent>
+                    <Ul>        
+                        <Li></Li>
+                    </Ul>
+            </Filter>
         </div>
     );
 

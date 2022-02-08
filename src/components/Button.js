@@ -8,7 +8,7 @@ const Button = styled.button`
     font-size: 14px;
     font-weight: 500;
     font-family: var(--fontTwo);
-    margin: 1rem;
+    margin-right: 1rem;
     padding: .9rem;
     cursor: pointer;
     width: ${props => props.theme.main};
