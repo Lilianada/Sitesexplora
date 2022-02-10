@@ -1,9 +1,10 @@
 import styled from "styled-components"
 import FilterColor from "./FilterColor";
 import FilterTag from "./FilterTag";
+import { devices } from "../MediaQueries"
 
 const FilterContent = styled.section`
-    display: none;
+    display: flex;
     flex-direction: column;
     justify-content: flex-start;
     margin: .5rem; 
@@ -14,13 +15,19 @@ const FilterContent = styled.section`
 const FilterTags = styled.div`
     display: flex;
     justify-content: flex-start;
-    padding: .5rem
+    align-items: centre;
+    padding: 0 .5rem;
+
+    @media ${devices.tabletL} {
+        justify-content: center;
+    }
 `;
 
 const Ul = styled.ul`
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
+    
 `;
 
 const Li = styled.li`
@@ -29,16 +36,21 @@ const Li = styled.li`
 
 const Pi = styled.p`
     //width: ${props => props.large ? "100px" : "70px"};
-    line-height: 2rem;
-    padding: 0 1rem;
-    margin: .5rem;
+    line-height: 1.35rem;
+    padding: 0 .75rem;
+    margin: .5rem .5rem .5rem 0;
+    font-size: var(--font-twelve);
     border: 1px solid var(--grey-color);
     border-radius: 3px;
+    cursor: pointer;
+
+    :hover{
+        color: var(--grey-color);
+    }
 `;
 
 
 export default function Filter () {
-    // const [display, setDisplay] = useState('');
 
     return(
         <FilterContent>

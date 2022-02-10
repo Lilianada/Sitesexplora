@@ -1,106 +1,98 @@
-//import styled from "styled-components";
+import styled from "styled-components";
 import React from 'react';
 import { IoEllipsisHorizontalSharp } from "react-icons/io5";
-//import {devices} from './MediaQueries';
+import {devices} from './MediaQueries';
 import "./TabTypes";
-//import TabTypes from "./TabTypes";
 import Filter from "./Filter/Filter";
 import PopUp from "./ModalPopUp";
 import TabSearch from "./TabSearch";
-import Tab from "./Menu"
+import { useState } from "react";
 
-// const Tabs = styled.button`
-//     cursor: pointer;
-//     outline: 0;
-//     margin: 0 1rem;
-//     background: none;
-//     border: none;
-//     font-size: var(--font-fourteen);
-//     color: var(--hover-color);
+const Tabs = styled.button`
+    cursor: pointer;
+    outline: 0;
+    margin: 0 1rem;
+    background: none;
+    border: none;
+    font-size: var(--font-fourteen);
+    color: var(--hover-color);
     
+    :focus{
+        color: var(--purple-color);
+    }
+    ${({ active }) =>
+    active &&
+    `
+        color: var(--purple-color);
+    `}
+`;
 
-//     ${({ active }) =>
-//     active &&
-//     `
-//         color: var(--purple-color);
-//     `}
-// `;
+const TabList = styled.div`
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 70%;
+    margin: .75rem auto;
 
-// const TabList = styled.div`
-//     display: flex;
-//     justify-content: space-around;
-//     align-items: center;
-//     width: 70%;
-//     margin: .75rem auto;
+    @media ${devices.tabletL}{
+        width: 35%;
+    }
+`  
 
-//     @media ${devices.tabletL}{
-//         width: 35%;
-//     }
-// `;  
 
-// const Tab = styled.div`
-//  display: flex;
-// `
-
-const tabContent = [
-    {
-        tab: 'Search',
-        render: () =>   <TabSearch />
-    },
-    { 
-        tabs: 'Filter', 
-        render: () => <Filter />
-    },
-    {
-        tabs: 'Submit', 
-        render: () => <PopUp />
-    } 
-]
 let ellipsis = <IoEllipsisHorizontalSharp style={{height: "1.5rem", width: "1.5rem"}}/>
-const types = ['Search', 'Filter', 'Submit']
-
 
 export default function TabMenu () {
+    const [displaySearch, setDisplaySearch] = useState(false)
+    const [displayFilter, setDisplayFilter] = useState(false)
+    const [displayPopUp, setDisplayPopUp] = useState(false)
+    const [displayDropdown, setDisplayDropdown] = useState(false)
 
     return(
         <div>
-            <Tab active={1}>
-                {tabContent.map((tab, idx) =>(
-                    <Tab.TabPane key={`tab.${idx}`} tab={tab.title}>
-                        {Tab}
-                    </Tab.TabPane>
-                ))}
-            </Tab>
+            <TabList>
+                <Tabs onClick={() => {setDisplaySearch(!displaySearch)}}>Search</Tabs>
+                <Tabs onClick={() => {setDisplayFilter(!displayFilter)}}>Filter</Tabs>
+                <Tabs onClick={() => {setDisplayPopUp(!displayPopUp)}}>Submit</Tabs>
+                <Tabs onClick={() => {setDisplayDropdown(!displayDropdown)}}>{ellipsis}</Tabs>
+            </TabList>
 
+            {displaySearch && <TabSearch onBlur={() => {setDisplaySearch(!displaySearch)}}/>}
+            {displayFilter && <Filter onClick={() => {setDisplayFilter(!displayFilter)}}/>}
+            {displayPopUp && <PopUp onBlur={() => {setDisplaySearch(!displaySearch)}}/>}
+            {/*{displaySearch && <TabSearch onBlur={() => {setDisplaySearch(!displaySearch)}}/>} */}
+            
         </div>
     );
-
 }
 
-   
+
+{/* <TabList>
+    {types.map(type => (
+        <Tabs
+        key= {type}
+        active= {active === type}
+        onClick={() => setActive(type)}
+        >
+            {type}
+        </Tabs>
+    ))}
+</TabList> */}
+
+
 // export default function TabMenu () {
-//     const [active, setActive] = useState('');
-//     
+
 //     return(
 //         <div>
-//             <TabList>
-//                 {types.map(type => (
-//                     <Tabs
-//                         key= {type}
-//                         active= {active === type}
-//                         onClick={() => setActive(type)}
-//                     >
-//                         {type}
-//                     </Tabs>
+//             <Tab active={1}>
+//                 {tabContent.map((tab, idx) =>(
+//                     <Tab.TabPane key={`tab.${idx}`} tab={tab.title}>
+//                         {Tab}
+//                     </Tab.TabPane>
 //                 ))}
-//             </TabList>
+//             </Tab>
 
-//             <PopUp />
-            
-//             <SearchInput>
-//                 <Search type="search" name="search" id="search" placeholder="Search for a site..." />
-//             </SearchInput>
-                
-//             <Filter />
 //         </div>
 //     );
+
+// }

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 
 const SearchInput = styled.form`
-    display: none;
+    display: block;
     position: absolute;
     width: 260px;
     background-color: var(--white-color);
@@ -14,7 +14,7 @@ const SearchInput = styled.form`
     padding: 8px 16px 0 16px;
 `
 const Search = styled.input`
-    display: none;
+    display: block;
     outline: none;
     border: none;
     height: 30px;
@@ -32,10 +32,10 @@ const Search = styled.input`
     
 
 
-export default function TabSearch () {
+export default function TabSearch ({onBlur}) {
     return(
         <SearchInput>
-            <Search type="search" name="search" id="search" placeholder="Search for a site..." />
+            <Search type="search" name="search" id="search" placeholder="Search for a site..." onBlur={() => onBlur()} />
         </SearchInput>
-    )
+    );
 }
