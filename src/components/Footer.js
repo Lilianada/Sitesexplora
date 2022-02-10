@@ -1,4 +1,3 @@
-
 import styled from "styled-components";
 import {devices} from './MediaQueries'
 
@@ -8,7 +7,8 @@ const Footer = styled.footer`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-bottom: 2rem;
+    padding-bottom: 1rem;
+    padding-bottom: 1rem;
 `
 
 const FooterLinks = styled.ul`
@@ -47,36 +47,6 @@ const A = styled.a`
 
 
 export default function FooterSection () {
-    // state = {
-    //     items: [],
-    //     page: 0,
-    //     visible: 12,
-    //     isLoading: false,
-    //     errorMsg: ''
-    // };
-    // loadMore() {
-    //     this.setState((prev) => {
-    //       return {visible: prev.visible + 4};
-    //     });
-    // };
-
-    // componentDidMount() {
-    //     fetch("CardsComp").then(
-    //       res => res.json()
-    //     ).then(res => {
-    //       this.setState({
-    //         items: res
-    //       });
-    //     }).catch(error => {
-    //       console.error(error);
-    //       this.setState({
-    //         error: true
-    //       });
-    //     });
-    //   }
-    
-    
-
     return(
         <Footer>
             

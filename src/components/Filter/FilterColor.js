@@ -48,12 +48,12 @@ export default
         {
             id : 9,
             tabName : "white",
-            color : "white"
+            color : "grey"
         },
         {
             id : 10,
             tabName : "yellow",
-            color : "yellow"
+            color : "#685a06"
         }
     ]
 

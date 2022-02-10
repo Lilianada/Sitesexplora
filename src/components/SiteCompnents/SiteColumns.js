@@ -16,7 +16,7 @@ const SiteCard = styled.div`
 const CardWrap = styled.div`
     position: relative;
     transition: background .3s ease-in-out;
-    margin: 1rem;
+    margin: 1rem 2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
