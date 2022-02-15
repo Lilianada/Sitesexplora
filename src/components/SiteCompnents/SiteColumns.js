@@ -56,13 +56,6 @@ const BoxImg = styled.div`
     
 `
 
-// BoxImg.defaultProps = {
-//     theme. {
-            
-    
-//     }
-// }
-
 const Hover = styled.div`
     display: none;
     position: absolute;

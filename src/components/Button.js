@@ -8,8 +8,8 @@ const Button = styled.button`
     font-size: 14px;
     font-weight: 500;
     font-family: var(--fontTwo);
-    margin-right: 1rem;
-    margin-left: 1rem;
+    margin-right: 5%;
+    margin-left: 5%;
     padding: .9rem;
     cursor: pointer;
     width: ${props => props.theme.main};

@@ -59,7 +59,7 @@ export default function TabMenu () {
 
             {displaySearch && <TabSearch onBlur={() => {setDisplaySearch(!displaySearch)}}/>}
             {displayFilter && <Filter onClick={() => {setDisplayFilter(!displayFilter)}}/>}
-            {displayPopUp && <PopUp onBlur={() => {setDisplaySearch(!displaySearch)}}/>}
+            {displayPopUp && <PopUp onClick ={() => {setDisplaySearch(!displaySearch)}}/>}
             {/*{displaySearch && <TabSearch onBlur={() => {setDisplaySearch(!displaySearch)}}/>} */}
             
         </div>
