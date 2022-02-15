@@ -65,15 +65,14 @@ const Label = styled.label`
     margin: 1rem 0;
 `
 
-export default function PopUp () {
-    const[isOpen, setIsOpen] = useState(false)
+export default function PopUp ({onClose}) {
     
     return(
 
         <ModalWrapper >
-            <AiOutlineClose onClick={() => setIsOpen(false)} style={{position: "absolute", right: "100px", top: "26px", color: "#fff", fontSize: "35px", cursor: "pointer"}} />
+            <AiOutlineClose onClick={() => onClose && onClose()} style={{position: "absolute", right: "100px", top: "26px", color: "#fff", fontSize: "35px", cursor: "pointer"}} />
             
-                <SubmitModal> 
+                <SubmitModal > 
                     <ModalHead>Be seen amongst the best</ModalHead>
                     <ModalText>If you'd like to have your site (or any site) considered for 
                         in our gallery, please complete the form below.

@@ -59,13 +59,12 @@ export default function TabMenu () {
 
             {displaySearch && <TabSearch onBlur={() => {setDisplaySearch(!displaySearch)}}/>}
             {displayFilter && <Filter onClick={() => {setDisplayFilter(!displayFilter)}}/>}
-            {displayPopUp && <PopUp onClick ={() => {setDisplaySearch(!displaySearch)}}/>}
+            {displayPopUp && <PopUp onClick ={() => {setDisplaySearch(!displaySearch)}} onClose={() => setDisplayPopUp(!displayPopUp)}/>}
             {/*{displaySearch && <TabSearch onBlur={() => {setDisplaySearch(!displaySearch)}}/>} */}
             
         </div>
     );
 }
-
 
 {/* <TabList>
     {types.map(type => (
