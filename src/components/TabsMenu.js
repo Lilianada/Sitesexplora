@@ -39,7 +39,6 @@ const TabList = styled.div`
     }
 `  
 
-
 let ellipsis = <IoEllipsisHorizontalSharp style={{height: "1.5rem", width: "1.5rem"}}/>
 
 export default function TabMenu () {
@@ -65,33 +64,3 @@ export default function TabMenu () {
         </div>
     );
 }
-
-{/* <TabList>
-    {types.map(type => (
-        <Tabs
-        key= {type}
-        active= {active === type}
-        onClick={() => setActive(type)}
-        >
-            {type}
-        </Tabs>
-    ))}
-</TabList> */}
-
-
-// export default function TabMenu () {
-
-//     return(
-//         <div>
-//             <Tab active={1}>
-//                 {tabContent.map((tab, idx) =>(
-//                     <Tab.TabPane key={`tab.${idx}`} tab={tab.title}>
-//                         {Tab}
-//                     </Tab.TabPane>
-//                 ))}
-//             </Tab>
-
-//         </div>
-//     );
-
-// }
