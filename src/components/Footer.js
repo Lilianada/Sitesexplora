@@ -49,8 +49,6 @@ const A = styled.a`
 export default function FooterSection () {
     return(
         <Footer>
-            
-
             <FooterLinks>
                 <Links><A>Chrome Extension</A></Links>
                 <Links><A>Twitter</A></Links>
