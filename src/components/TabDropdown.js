@@ -8,16 +8,17 @@ export default function Dropdown () {
     const [activeLink, setActiveLink] = useState(false)
     return (
       <>
-        <DropdownMenu>
+        {/* <DropdownMenu>
             {
-                dropMenu.map(menu, index) => (
+                dropMenu.map(({menu}, index) => (
                     <Link>
                         key= {menu}
                         {index === activeLink ? false : ""}
+                        onClick= {() => setActiveLink}
                     </Link>
-                )
+                ))
             }
-        </DropdownMenu>
+        </DropdownMenu> */}
       </>  
     );
 }

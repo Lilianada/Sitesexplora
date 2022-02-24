@@ -7,6 +7,7 @@ import Filter from "./Filter/Filter";
 import PopUp from "./ModalPopUp";
 import TabSearch from "./TabSearch";
 import { useState } from "react";
+import Dropdown from "./TabDropdown";
 
 const Tabs = styled.button`
     cursor: pointer;
@@ -59,7 +60,7 @@ export default function TabMenu () {
             {displaySearch && <TabSearch onBlur={() => {setDisplaySearch(!displaySearch)}}/>}
             {displayFilter && <Filter onClick={() => {setDisplayFilter(!displayFilter)}}/>}
             {displayPopUp && <PopUp onClick ={() => {setDisplaySearch(!displaySearch)}} onClose={() => setDisplayPopUp(!displayPopUp)}/>}
-            {/*{displaySearch && <TabSearch onBlur={() => {setDisplaySearch(!displaySearch)}}/>} */}
+            {displaySearch && <Dropdown onClick={() => {setDisplayDropdown(!displayDropdown)}}/>}
             
         </div>
     );
