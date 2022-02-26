@@ -1,3 +1,9 @@
+# Sitesexplora
+
+This is a static clone of Sitesee.co with a little mchange in the UI
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

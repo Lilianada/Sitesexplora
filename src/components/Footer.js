@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import {devices} from './MediaQueries'
 
 
 const Footer = styled.footer`
@@ -17,9 +16,9 @@ const FooterLinks = styled.ul`
     justify-content: center;
     align-items: center;
     width: auto;
-    margin: 0 auto
+    margin: 0 auto;
 
-    @media ${devices.tabletL} {
+    @media screen and (min-width: 900px) {
         width: 42%;
         justify-content: space-between;
     }
