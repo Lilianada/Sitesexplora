@@ -7,7 +7,7 @@ import Filter from "./Filter/Filter";
 import PopUp from "./ModalPopUp";
 import TabSearch from "./TabSearch";
 import { useState } from "react";
-import Dropdown from "./TabDropdown";
+import TabDropdown from "./TabDropdown";
 
 const Tabs = styled.button`
     cursor: pointer;
@@ -46,7 +46,7 @@ export default function TabMenu () {
     const [displaySearch, setDisplaySearch] = useState(false)
     const [displayFilter, setDisplayFilter] = useState(false)
     const [displayPopUp, setDisplayPopUp] = useState(false)
-    const [displayDropdown, setDisplayDropdown] = useState(false)
+    //const [displayDropdown, setDisplayDropdown] = useState(false)
 
     return(
         <div>
@@ -54,13 +54,13 @@ export default function TabMenu () {
                 <Tabs onClick={() => {setDisplaySearch(!displaySearch)}}>Search</Tabs>
                 <Tabs onClick={() => {setDisplayFilter(!displayFilter)}}>Filter</Tabs>
                 <Tabs onClick={() => {setDisplayPopUp(!displayPopUp)}}>Submit</Tabs>
-                <Tabs onClick={() => {setDisplayDropdown(!displayDropdown)}}>{ellipsis}</Tabs>
+                <TabDropdown />
             </TabList>
 
             {displaySearch && <TabSearch onBlur={() => {setDisplaySearch(!displaySearch)}}/>}
             {displayFilter && <Filter onClick={() => {setDisplayFilter(!displayFilter)}}/>}
             {displayPopUp && <PopUp onClick ={() => {setDisplaySearch(!displaySearch)}} onClose={() => setDisplayPopUp(!displayPopUp)}/>}
-            {displaySearch && <Dropdown onClick={() => {setDisplayDropdown(!displayDropdown)}}/>}
+            {/* {displaySearch && <TabDropdown onClick={() => {setDisplayDropdown(!displayDropdown)}}/>} */}
             
         </div>
     );

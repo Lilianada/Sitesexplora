@@ -1,24 +1,20 @@
-// import styled from "styled-components";
+import React from 'react'
+import { Dropdown } from 'semantic-ui-react';
 
-import { useState } from "react";
 
 
-export default function Dropdown () {
-    const dropMenu = ["Newsletter", "Chrome Extension", "Twitter"]
-    const [activeLink, setActiveLink] = useState(false)
-    return (
-      <>
-        {/* <DropdownMenu>
-            {
-                dropMenu.map(({menu}, index) => (
-                    <Link>
-                        key= {menu}
-                        {index === activeLink ? false : ""}
-                        onClick= {() => setActiveLink}
-                    </Link>
-                ))
-            }
-        </DropdownMenu> */}
-      </>  
-    );
-}
+const TabDropdown = () => (
+    <Dropdown
+      icon='ellipsis horizontal'
+      button
+      floating
+      className='icon'
+    >
+      <Dropdown.Menu>
+        <Dropdown.Item>Newsletter</Dropdown.Item>
+        <Dropdown.Item>Chrome Extension</Dropdown.Item>
+        <Dropdown.Item>Twitter</Dropdown.Item>
+      </Dropdown.Menu>
+    </Dropdown>
+  )
+export default TabDropdown;
