@@ -138,6 +138,36 @@ export default
             image: "https://api.microlink.io?url=https%3A%2F%2Fbuildingbloques.netlify.app&screenshot=true&meta=false&embed=screenshot.url",
             url: "https://buildingbloques.netlify.app",
             label: "Building Bloque"
+        },
+        {
+            id: 23,
+            image: "/assets/minimalapps.co.png",
+            url: "https://minimalapps.co/",
+            label: "Minimalapps"
+        },
+        {
+            id: 24,
+            image: "/assets/seanhalpin.design.png",
+            url: "https://seanhalpin.design/",
+            label: "Sean Halpin"
+        },
+        {
+            id: 25,
+            image: "/assets/tiffanylusteg.png",
+            url: "https://tiffanylusteg.com/",
+            label: "Tiffany Lusteg"
+        },
+        {
+            id: 26,
+            image: "/assets/indiharris.png",
+            url: "https://indiharris.com/",
+            label: "Indi Harris"
+        },
+        {
+            id: 27,
+            image: "/assets/bguillaunme.fr.png",
+            url: "https://bguillaunme.fr/",
+            label: "Bguillaunme"
         }
     ]
 

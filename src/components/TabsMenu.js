@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import React from 'react';
-import { IoEllipsisHorizontalSharp } from "react-icons/io5";
+//import { IoEllipsisHorizontalSharp } from "react-icons/io5";
 import {devices} from './MediaQueries';
 import "./TabTypes";
 import Filter from "./Filter/Filter";
@@ -40,7 +40,7 @@ const TabList = styled.div`
     }
 `  
 
-let ellipsis = <IoEllipsisHorizontalSharp style={{height: "1.5rem", width: "1.5rem"}}/>
+//let ellipsis = <IoEllipsisHorizontalSharp style={{height: "1.5rem", width: "1.5rem"}}/>
 
 export default function TabMenu () {
     const [displaySearch, setDisplaySearch] = useState(false)
