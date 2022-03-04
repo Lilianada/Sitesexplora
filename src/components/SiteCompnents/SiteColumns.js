@@ -15,7 +15,7 @@ const SiteCard = styled.div`
 
 const CardWrap = styled.div`
     position: relative;
-    transition: background .3s ease-in-out;
+    transition: .3s ease-in-out;
     margin: 1rem 2rem;
     display: flex;
     flex-direction: column;
@@ -64,12 +64,12 @@ const Hover = styled.div`
     visibility: hidden;
     opacity: 0;
     z-index: 3;
-    transition: opacity .3s ease-in-ou
+    transition: opacity .3s ease-in-out;
     position: absolute;
     margin-top: -32px;
     width: 100%;
     top: 50%;
-    left: 20%
+    left: 20%;
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(0%);
@@ -88,7 +88,7 @@ export default function SiteCards () {
     const [visible, setVisible] = useState(12);
     const showMoreItems = () => {
         setVisible((prevValue) => prevValue + 12)
-    };
+    }
 
     const [display, setDisplay] = useState('')
     const showButtons = () => {
