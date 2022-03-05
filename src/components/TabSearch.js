@@ -32,7 +32,8 @@ const Search = styled.input`
     
 
 
-export default function TabSearch ({onBlur}) {
+export default function
+ TabSearch ({onBlur}) {
     return(
         <SearchInput>
             <Search type="search" name="search" id="search" placeholder="Search for a site..." onBlur={() => onBlur()} />
