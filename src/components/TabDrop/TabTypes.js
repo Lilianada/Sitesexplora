@@ -1,5 +1,5 @@
-import Filter from "./Filter/Filter";
-import PopUp from "./ModalPopUp";
+import Filter from "../Filter/Filter";
+import PopUp from "../TabDrop/ModalPopUp";
 import TabSearch from "./TabSearch";
 
 export default [

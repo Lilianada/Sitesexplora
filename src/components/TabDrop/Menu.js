@@ -2,7 +2,6 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import styled from "styled-components";
-import { devices } from "./MediaQueries";
 
 //import { Children } from "react";
 
@@ -30,7 +29,7 @@ const TabList = styled.div`
     width: 70%;
     margin: .75rem auto;
 
-    @media ${devices.tabletL}{
+    @media screen and (min-width: 900px){
         width: 35%;
     }
 `;  

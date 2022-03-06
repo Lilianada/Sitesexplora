@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import TabMenu from "./TabsMenu";
+import TabMenu from "./TabDrop/TabsMenu";
 
 const Header = styled.section`
     display: flex;

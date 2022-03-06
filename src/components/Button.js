@@ -16,7 +16,7 @@ const Button = styled.button`
 
     :hover{
         background: var(--hover-color); 
-        color: ${props => props.hover ? "#2f3032" : "#212121"};
+        color: ${props => props.hover ? "#2f3032" : "#7780f8"};
     }
 `
 export default Button;

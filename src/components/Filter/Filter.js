@@ -1,7 +1,6 @@
 import styled from "styled-components"
 import FilterColor from "./FilterColor";
 import FilterTag from "./FilterTag";
-import { devices } from "../MediaQueries"
 
 const FilterContent = styled.section`
     display: flex;
@@ -18,7 +17,7 @@ const FilterTags = styled.div`
     align-items: centre;
     padding: 0 .5rem;
 
-    @media ${devices.tabletL} {
+    @media screen and (min-width: 900px) {
         justify-content: center;
     }
 `;

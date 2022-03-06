@@ -1,9 +1,7 @@
 import styled from "styled-components";
-import Button from "./Button";
-import { devices } from "./MediaQueries";
+import Button from "../Button";
 import React from "react";
 import { AiOutlineClose } from "react-icons/ai";
-import { useState } from "react";
 
 const ModalWrapper =styled.div`
     display: block;
@@ -30,7 +28,7 @@ const SubmitModal = styled.div`
     position: relative;
     border-radius: 3px;
     
-    @media ${devices.tablet} {
+    @media screen and (min-width: 900px) {
         width: 400px;
     } 
 `

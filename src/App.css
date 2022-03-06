@@ -48,14 +48,14 @@ html {
     scroll-behavior: smooth;
 }
 
-
+/* 
 @font-face {
     font-family: 'just-peachy';
     src: url('../public/assets/Peachy/just-peachy-70s-webfont.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
-}
-
+} */
+/* 
 @font-face {
   font-family: 'tt commons pro';
   src: url('../public/assets/TT-commons/fontspring-demo-tt_commons_pro_regular-webfont.woff') format('woff'),
@@ -70,7 +70,7 @@ html {
        url('../public/assets/The-season/fontspring-demo-theseasons-reg-webfont.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
-}
+} */
 
 
 /*========================================*/

@@ -1,7 +1,6 @@
 import styled, {ThemeProvider} from 'styled-components';
 import Button from '../Button';
 import CardsComp from './CardsComp';
-import {devices} from '../MediaQueries';
 import {useState } from 'react';
 
 const SiteCard = styled.div`
@@ -22,7 +21,7 @@ const CardWrap = styled.div`
     justify-content: center;
     align-items: center;
 
-    @media ${devices.tabletL} {
+    @media screen and (min-width: 900px) {
         width: 40%;
         height: auto;
     }
@@ -37,7 +36,7 @@ const BoxImg = styled.div`
     position: relative;
     display: block;
     width: 100%;
-    height: 100%;
+    height: fit-content;
     z-index: 1;
     transition: all .3s ease-in-out;
     transform: translateZ(0);
@@ -101,7 +100,7 @@ export default function SiteCards () {
                     <CardWrap key={cards.id}>
                         <Figure>
                             <BoxImg onMouseOver={showButtons}>
-                                <img src= {cards.image}/>
+                                <img src= {cards.image} alt="site"/>
                             </BoxImg>
                             <Hover  {...display}>
                                 <Button>Details</Button>

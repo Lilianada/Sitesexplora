@@ -1,9 +1,8 @@
 import styled from "styled-components";
 import React from 'react';
 //import { IoEllipsisHorizontalSharp } from "react-icons/io5";
-import {devices} from './MediaQueries';
 import "./TabTypes";
-import Filter from "./Filter/Filter";
+import Filter from "../Filter/Filter";
 import PopUp from "./ModalPopUp";
 import TabSearch from "./TabSearch";
 import { useState } from "react";
@@ -35,7 +34,7 @@ const TabList = styled.div`
     width: 70%;
     margin: .75rem auto;
 
-    @media ${devices.tabletL}{
+    @media screen and (min-width: 900px){
         width: 35%;
     }
 `  
